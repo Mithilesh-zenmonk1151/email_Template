@@ -107,6 +107,7 @@ exports.sendOfferLetterpMail = async (payload) => {
         }
       }
     );
+    
   } catch (error) {
     console.log(error.message);
     throw error;
