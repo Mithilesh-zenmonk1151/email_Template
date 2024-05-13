@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Offer Letter Confirmation </title>
+    <title>Email Template </title>
     <style>
       body {
         background-color: #ffffff;
@@ -86,7 +86,7 @@
     <div></div>
     <div class="container">
       <div class="companyName">
-        <h1>ZENMONK</h1>
+        <h1><%= companyName %></h1>
       </div>
       <div class="date">
         <p><%= month %></p>
@@ -99,7 +99,7 @@
         <%= country %>
       </div>
       <div class="offer-letter">
-        <h5 class="offer-heading">LETTER OF OFFER</h5>
+        <h5 class="offer-heading"><%= heading %></h5>
       </div>
       <div class="first-last">
         <p>Dear <%= firstname %> ,</p>
@@ -108,7 +108,7 @@
         <div>
           <div>
             <p>
-              With reference to your application and the subsequent interview
+                <%= content %>  
               you had with us, we are pleased to offer you the position of “<%=
               role %>” in our organization at a stipend of INR 20,000 per month.
               Your internship is scheduled to start effective from <%=
@@ -149,8 +149,8 @@
       </div>
       <div>
         <h4>Sincerely,</h4>
-        <h5>Management Division,</h5>
-        <h5>Zenmonk Software and Services Pvt. Ltd.</h5>
+        <h5>Management Division, <br/>
+       Zenmonk Software and Services Pvt. Ltd.</h5>
       </div>
 
       <a href="https://zenmonk.tech/">zenmonk.tech</a>

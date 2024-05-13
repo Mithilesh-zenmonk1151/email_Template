@@ -34,6 +34,12 @@ exports.sendOfferLetterpMail = async (payload) => {
       acceptanceMonth,
       acceptanceDate,
       role,
+      subject,
+      companyName,
+      heading,
+      content,
+
+      
 
       acceptanceYear,
       selecteddvalue
@@ -52,6 +58,10 @@ exports.sendOfferLetterpMail = async (payload) => {
         {
           "selecteddValue":"3",
           "url":"offerLetterthree.ejs"
+        },
+        {
+          "selecteddValue":"4",
+          "url":"customizeMailTemplate.ejs"
         }
          ],
      }
@@ -59,16 +69,13 @@ exports.sendOfferLetterpMail = async (payload) => {
   const selectedTemplate = nayaArray.find(template => template.selecteddValue === selecteddvalue);
   if(!selectedTemplate){
     throw new CustomError("Selected template not found",404);
-
   }
   // console.log("SSSEEEEEEEELLLLLEECCTTEDTTTEEMMPLEEAT",selectedTemplate);
    const selectedUrl=selectedTemplate.url
    console.log("selectedUUUUUUUUUUUUUU========",selectedUrl);
- 
-
     ejs.renderFile(
       path.join(__dirname, `../views/templates/${selectedUrl}`),
-      {
+      {content,
         month,
         date,
         year,
@@ -81,6 +88,8 @@ exports.sendOfferLetterpMail = async (payload) => {
         startYear,
         numberOfMonth,
         lowestCtc,
+        heading,
+        companyName,
         highestCtc,
         acceptanceDate,
         acceptanceMonth,
@@ -94,7 +103,7 @@ exports.sendOfferLetterpMail = async (payload) => {
           var mailOptions = {
             from: process.env.SMTP_MAIL,
             to: email,
-            subject: "Offer Letter",
+            subject: subject,
             html: data,
           };
 
