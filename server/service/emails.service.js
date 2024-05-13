@@ -1,6 +1,8 @@
 const nodemailer = require("nodemailer");
 const ejs = require("ejs");
 const path = require("path");
+const CustomError = require("../utils/error");
+
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -34,11 +36,38 @@ exports.sendOfferLetterpMail = async (payload) => {
       role,
 
       acceptanceYear,
+      selecteddvalue
     } = payload.body;
     console.log("REQ.BNODY",payload.body);
+     const findingTypeOfTemp= {
+      "SelectedTemplate": [
+        {
+         "selecteddValue": "1",
+         "url": "offerLetter.ejs",
+        },
+        {
+          "selecteddValue":"2",
+          "url":"offerLetterTwo.ejs"
+        },
+        {
+          "selecteddValue":"3",
+          "url":"offerLetterthree.ejs"
+        }
+         ],
+     }
+  const nayaArray= findingTypeOfTemp.SelectedTemplate;
+  const selectedTemplate = nayaArray.find(template => template.selecteddValue === selecteddvalue);
+  if(!selectedTemplate){
+    throw new CustomError("Selected template not found",404);
+
+  }
+  // console.log("SSSEEEEEEEELLLLLEECCTTEDTTTEEMMPLEEAT",selectedTemplate);
+   const selectedUrl=selectedTemplate.url
+   console.log("selectedUUUUUUUUUUUUUU========",selectedUrl);
+ 
 
     ejs.renderFile(
-      path.join(__dirname, "../views/templates/offerLetter.ejs"),
+      path.join(__dirname, `../views/templates/${selectedUrl}`),
       {
         month,
         date,
@@ -80,6 +109,7 @@ exports.sendOfferLetterpMail = async (payload) => {
     );
   } catch (error) {
     console.log(error.message);
+    throw error;
   }
 };
 

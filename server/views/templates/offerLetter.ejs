@@ -1,177 +1,182 @@
-
-
-    <!DOCTYPE html> 
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Contact Form Confirmation</title>
-        <style>
-            body {
-                background-color: #FFFFFF;
-                font-family: Arial, sans-serif;
-                font-size: 16px;
-                line-height: 1.4;
-                color: #333333;
-                margin: 0;
-                padding: 0;
-                width: 100vw;
-            }
-            .container {
-                /* max-width: 600px; */
-                margin: 0 auto;
-                padding: 50px;
-               
-            }
-            .name-country{
-              display: flex;
-                
-            }
-            .companyName{
-                display:flex ;
-                width: 100%;
-                justify-content: flex-start;
-                color: rgb(236, 62, 9);
-            }
-            .date{
-                display: flex;
-                width: 100%;
-            }
-            .logo {
-                max-width: 200px;
-                margin-bottom: 20px;
-            }
-            .offer-letter {
-                font-size: 18px;
-                font-weight: 800;
-                margin-bottom: 25px;
-                display: flex;
-            }
-            .offer-heading{
-                font-size: 18px;
-
-            }
-            .body {
-                font-size: 16px;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: first baseline;
-                gap: -10px;
-            }
-            .cta {
-                display: inline-block;
-                padding: 10px 20px;
-                background-color: #FFD60A;
-                color: #000000;
-                text-decoration: none;
-                border-radius: 5px;
-                font-size: 16px;
-                font-weight: bold;
-                margin-top: 20px;
-            }
-            .support {
-                font-size: 14px;
-                color: #999999;
-                margin-top: 20px;
-            }
-            .highlight {
-                font-weight: bold;
-            }
-            .first-last{
-                display: flex;
-
-            }
-            .india-office{
-                display: flex;
-                align-items: center;
-                gap: 5px;
-            }
-        </style>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Form Confirmation</title>
+    <style>
+      body {
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.4;
+        color: #333333;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+      }
+      .container {
+        /* max-width: 600px; */
+        margin: 0 auto;
+        padding: 50px;
+      }
+      .name-country {
+        display: flex;
+      }
+      .companyName {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        color: rgb(236, 62, 9);
+      }
+      .date {
+        display: flex;
+        width: 100%;
+      }
+      .logo {
+        max-width: 200px;
+        margin-bottom: 20px;
+      }
+      .offer-letter {
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 25px;
+        display: flex;
+      }
+      .offer-heading {
+        font-size: 18px;
+      }
+      .body {
+        font-size: 16px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: first baseline;
+        gap: -10px;
+      }
+      .cta {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ffd60a;
+        color: #000000;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      .support {
+        font-size: 14px;
+        color: #999999;
+        margin-top: 20px;
+      }
+      .highlight {
+        font-weight: bold;
+      }
+      .first-last {
+        display: flex;
+      }
+      .india-office {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div class="container">
+      <div class="companyName">
+        <h1>ZENMONK</h1>
+      </div>
+      <div class="date">
+        <p><%= month %></p>
+        <p><%= date %></p>
+        <p>,</p>
+        <p><%= year %></p>
+      </div>
+      <div class="name-country">
+        <%= firstname %> <%= lastname %> <br />
+        <%= country %>
+      </div>
+      <div class="offer-letter">
+        <h5 class="offer-heading">LETTER OF OFFER</h5>
+      </div>
+      <div class="first-last">
+        <p>Dear <%= firstname %> ,</p>
+      </div>
+      <div class="body">
         <div>
-            <img style="height: 300px; width: 300px;" src="../../utils/images/email.jpg" alt="company logo"/>
+          <div>
+            <p>
+              With reference to your application and the subsequent interview
+              you had with us, we are pleased to offer you the position of “<%=
+              role %>” in our organization at a stipend of INR 20,000 per month.
+              Your internship is scheduled to start effective from <%=
+              startMonth %> <%= startDate %>, <%= startYear %>, for a period of
+              <%= numberOfMonth %> months. On successful completion of the
+              internship, your CTC will be between <%= lowestCtc %> LPA – <%=
+              highestCtc %> LPA on conversion to a full-time employee. You will
+              also be eligible for standard benefits as per company policy. We
+              believe that your skills, experience, and passion for
+              administration and management skills will be a great asset to our
+              team. Please confirm your acceptance of this offer by <%=
+              acceptanceMonth %> <%= acceptanceDate %>, <%= acceptanceYear %>.
+              After the acceptance, please share the following documents within
+              a week:
+            </p>
+          </div>
+          <div>
+            <ol>
+              <li>NOC certificate from University/College</li>
+              <li>ID (preferably Aadhaar Card) and Address Proof</li>
+              <li>Copies of educational certificates/degrees (10th onwards)</li>
+              <li>Experience certificates, if any</li>
+            </ol>
+          </div>
+          <div>
+            <p>
+              Your appointment will be subject to background verification of
+              your credentials and a formal letter of appointment will be issued
+              upon your joining.
+            </p>
+            <p>
+              We welcome you to the Zenmonk Team. If you have any questions,
+              please feel free to reach out at any time.
+            </p>
+            <p></p>
+          </div>
         </div>
-        <div class="container">
-            <div class="companyName">
-                <h1>ZENMONK </h1>
+      </div>
+      <div>
+        <h4>Sincerely,</h4>
+        <h5>Management Division,</h5>
+        <h5>Zenmonk Software and Services Pvt. Ltd.</h5>
+      </div>
 
+      <a href="https://zenmonk.tech/">zenmonk.tech</a>
+    </div>
 
-            </div>
-            <div class="date">
-                <p><%= month %></p>
-                <p><%= date %></p>  
-                <p>,</p>
-                <p><%= year %></p>
-            </div>
-            <div class="name-country">
-                <%= firstname %> <%= lastname %> <br/>
-            
-                 <%= country %>
-            </div>
-            <div class="offer-letter"><h5 class="offer-heading">LETTER OF OFFER</h5></div>
-             <div class="first-last">
-                <p>Dear <%= firstname %> ,</p>
-
-             </div>
-            <div class="body"><div>
-             <div>
-                 
-                <p>With reference to your application and the subsequent interview you had with us, we are pleased to offer you the
-              
-                position of “<%= role %>” in our organization at a stipend of INR 20,000 per month. Your
-                internship is scheduled to start effective from <%= startMonth %> <%= startDate %>, <%= startYear %>, for a period of <%= numberOfMonth %> months. On successful completion
-                of the internship, your CTC will be between <%= lowestCtc %> LPA – <%= highestCtc %> LPA on conversion to a full-time employee. You will also
-                be eligible for standard benefits as per company policy. We believe that your skills, experience, and passion for
-                administration and management skills will be a great asset to our team.
-                Please confirm your acceptance of this offer by <%= acceptanceMonth %> <%= acceptanceDate %>, <%= acceptanceYear %>. After the acceptance, please share the
-                following documents within a week:</p>
-           
-            </div>
-            <div>
-              
-                <ol>
-                    <li>NOC certificate from University/College</li>
-                    <li>ID (preferably Aadhaar Card) and Address Proof</li>
-                    <li>Copies of educational certificates/degrees (10th onwards)</li>
-                    <li>Experience certificates, if any</li>
-                </ol>
-            </div>
-               <div>
-              <p>Your appointment will be subject to background verification of your credentials and a formal letter of
-                appointment will be issued upon your joining.</p>
-                <p>We welcome you to the Zenmonk Team. If you have any questions, please feel free to reach out at any time.</p>
-                <p></p>
-            </div>
+    <div>
+      <div class="india-office">
+        <h4>Corporate Office India:</h4>
+        <div style="margin-top: 18px">
+          Phase 8B, Industrial Area, Sahibzada Ajit Singh Nagar (Mohali), Punjab
+          160055
         </div>
-            </div>
-            <div>
-                <h4>Sincerely,</h4>
-                <h5>Management Division,</h5>
-                <h5>Zenmonk Software and Services Pvt. Ltd.</h5>
-              </div>
-
-                <a href="https://zenmonk.tech/">zenmonk.tech</a>
-            </div>
-
-            <div>
-                <div class="india-office">
-                    <h4>Corporate Office India:</h4> <div style="margin-top: 18px; ">Phase 8B, Industrial Area, Sahibzada Ajit Singh Nagar (Mohali), Punjab 160055 </div>
-
-                </div>
-                <div class="india-office" style="display: flex;
-               height: 100%;">
-                    <h4>Corporate Offices International:</h4>
-                   <div style="margin-top: 18px; ">  Spain (Barcelona), Spain (Cantabria), Brazil, Ecuador, Colombia, Perú </div>
-
-                
-            </div>
-            <div class="support">If you have any further questions or need immediate assistance, please feel free to reach
-                out to us at <a href="https://zenmonk.tech/">zenmonk.tech</a>. We are here to help!</div>
+      </div>
+      <div class="india-office" style="display: flex; height: 100%">
+        <h4>Corporate Offices International:</h4>
+        <div style="margin-top: 18px">
+          Spain (Barcelona), Spain (Cantabria), Brazil, Ecuador, Colombia, Perú
         </div>
-    </body>
-    </html>
-  
-  
- 
-  <%- include("./includes/footer.ejs")  %>
+      </div>
+      <div class="support">
+        If you have any further questions or need immediate assistance, please
+        feel free to reach out to us at
+        <a href="https://zenmonk.tech/">zenmonk.tech</a>. We are here to help!
+      </div>
+    </div>
+  </body>
+</html>
+
+<%- include("./includes/footer.ejs") %>
